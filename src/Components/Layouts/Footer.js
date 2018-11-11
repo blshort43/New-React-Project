@@ -11,7 +11,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Paper from '@material-ui/core/Paper';
-import AppBar from '@material-ui/core/AppBar'
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import classNames from 'classnames';
+
 
 const styles = {
   list: {
@@ -20,7 +24,21 @@ const styles = {
   fullList: {
     width: 'auto',
   },
+  buttonStyle: {
+    background: '#2979ff',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 42,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(106, 102, 102, .3)',
+    margin: 5,
+  },
+  orangeBg: {
+    background: '#ff3d00',
+  },
 };
+
 
 class TemporaryDrawer extends React.Component {
   state = {
@@ -84,13 +102,15 @@ class TemporaryDrawer extends React.Component {
     );
 
     return (
-      <Paper>
-      <div>
-        {/*<Button onClick={this.toggleDrawer('left', true)}>Open Left</Button>
-        <Button onClick={this.toggleDrawer('right', true)}>Open Right</Button>
-        <Button onClick={this.toggleDrawer('top', true)}>Open Top</Button>*/}
-        <Button onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
-        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+        <BottomNavigation>
+          <div>
+
+            <Button style={styles.buttonStyle} color="" onClick={this.toggleDrawer('top', true)}>Open Top</Button>
+            <Button style={styles.buttonStyle} onClick={this.toggleDrawer('left', true)}>Open Left</Button>
+            <Button style={styles.buttonStyle} onClick={this.toggleDrawer('right', true)}>Open Right</Button>
+            <Button style={styles.buttonStyle} color="action" onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
+
+          <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
             role="button"
@@ -135,7 +155,7 @@ class TemporaryDrawer extends React.Component {
           </div>
         </Drawer>
       </div>
-      </Paper>
+      </BottomNavigation>
     );
   }
 }
