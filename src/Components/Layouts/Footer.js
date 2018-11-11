@@ -25,7 +25,7 @@ const styles = {
     width: 'auto',
   },
   buttonStyle: {
-    background: '#2979ff',
+    background: '#3f51b5',
     borderRadius: 3,
     border: 0,
     color: 'white',
